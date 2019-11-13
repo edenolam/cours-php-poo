@@ -19,10 +19,10 @@
     <?php endforeach ?>
 <?php endif ?>
 
-<form action="save-comment.php" method="POST">
+<form action="save-comment.php" class="form-group" method="POST">
     <h3>Vous voulez réagir ? N'hésitez pas les bros !</h3>
-    <input type="text" name="author" placeholder="Votre pseudo !">
-    <textarea name="content" id="" cols="30" rows="10" placeholder="Votre commentaire ..."></textarea>
+    <input type="text" class="form-control" name="author" placeholder="Votre pseudo !">
+    <textarea name="content" class="form-control" id="" cols="30" rows="10" placeholder="Votre commentaire ..."></textarea>
     <input type="hidden" name="article_id" value="<?= $article_id ?>">
-    <button>Commenter !</button>
+    <button class="btn btn-primary">Commenter !</button>
 </form>

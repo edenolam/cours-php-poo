@@ -8,11 +8,14 @@
  */
 require_once 'libraries/database.php';
 require_once 'libraries/utils.php';
+require_once 'libraries/models/Article.php';
+
+$modelArticle = new Article();
 
 /**
  * 2. Récupération des articles
  */
-$articles = findAllArticles();
+$articles = $modelArticle->findAll();
 
 /**
  * 3. Affichage
