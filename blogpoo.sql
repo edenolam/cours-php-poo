@@ -32,13 +32,13 @@ USE `blogpoo`;
 
 DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
-  `introduction` text NOT NULL,
-  `content` text NOT NULL,
-  `created_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+                                          `id` int(11) NOT NULL AUTO_INCREMENT,
+                                          `title` varchar(255) NOT NULL,
+                                          `slug` varchar(255) NOT NULL,
+                                          `introduction` text NOT NULL,
+                                          `content` text NOT NULL,
+                                          `created_at` datetime NOT NULL,
+                                          PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=142 DEFAULT CHARSET=latin1;
 
 --
@@ -75,13 +75,13 @@ INSERT INTO `articles` (`id`, `title`, `slug`, `introduction`, `content`, `creat
 
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `author` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `created_at` datetime NOT NULL,
-  `article_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_ARTICLES` (`article_id`)
+                                          `id` int(11) NOT NULL AUTO_INCREMENT,
+                                          `author` varchar(255) NOT NULL,
+                                          `content` text NOT NULL,
+                                          `created_at` datetime NOT NULL,
+                                          `article_id` int(11) NOT NULL,
+                                          PRIMARY KEY (`id`),
+                                          KEY `FK_ARTICLES` (`article_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=204 DEFAULT CHARSET=latin1;
 
 --
@@ -197,11 +197,11 @@ INSERT INTO `comments` (`id`, `author`, `content`, `created_at`, `article_id`) V
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+                                       `id` int(11) NOT NULL AUTO_INCREMENT,
+                                       `first_name` varchar(255) NOT NULL,
+                                       `last_name` varchar(255) NOT NULL,
+                                       `email` varchar(255) NOT NULL,
+                                       PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
