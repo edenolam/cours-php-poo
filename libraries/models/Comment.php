@@ -1,8 +1,9 @@
 <?php
+require_once('Model.php');
 
-require_once 'libraries/models/Model.php';
 class Comment extends Model
 {
+    protected $table = "comments";
 
     /**
      * @param int $article_id
@@ -14,27 +15,6 @@ class Comment extends Model
         $query->execute(['article_id' => $article_id]);
         $commentaires = $query->fetchAll();
         return $commentaires;
-    }
-
-    /**
-     * @param int $id
-     * @return mixed
-     */
-    public function find(int $id)
-    {
-        $query = $this->pdo->prepare('SELECT * FROM comments WHERE id = :id');
-        $query->execute(['id' => $id]);
-        $comment = $query->fetch();
-        return $comment;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function delete(int $id): void
-    {
-        $query = $this->pdo->prepare('DELETE FROM comments WHERE id = :id');
-        $query->execute(['id' => $id]);
     }
 
     /**
