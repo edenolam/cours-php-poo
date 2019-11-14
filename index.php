@@ -1,23 +1,9 @@
 <?php
+use Controller\Article;
 
-/**
- * CE FICHIER A POUR BUT D'AFFICHER LA PAGE D'ACCUEIL !
- */
-require_once 'libraries/database.php';
-require_once 'libraries/utils.php';
-require_once 'libraries/models/Article.php';
+require_once('libraries/autoload.php');
 
-$articleModel = new Article();
+\Application::process();
 
-
-/**
- * 2. Récupération des articles
- */
-$articles = $articleModel->findAll("created_at DESC");
-
-/**
- * 3. Affichage
- */
-$pageTitle = "Accueil";
-
-render('articles/index', compact('pageTitle', 'articles'));
+//$controller = new Article();
+//$controller->index();

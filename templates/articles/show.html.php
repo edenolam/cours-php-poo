@@ -21,7 +21,7 @@
             <div class="card-body">
                 <h5 class="card-title">Le <?= $commentaire['created_at'] ?></h5>
                 <p class="card-text"><?= $commentaire['content'] ?></p>
-                <a href="delete-comment.php?id=<?= $commentaire['id'] ?>" class="btn btn-primary"
+                <a href="index.php?controller=comment&task=delete&id=<?= $commentaire['id'] ?>" class="btn btn-primary"
                    onclick="return window.confirm(`Êtes vous sûr de vouloir supprimer ce commentaire ?!`)">Supprimer</a>
             </div>
         </div>
@@ -30,7 +30,7 @@
 
 <?php endif ?>
 
-<form action="save-comment.php" class="form-group" method="POST">
+<form action="index.php?controller=comment&task=insert" class="form-group" method="POST">
     <h3>Vous voulez réagir ? N'hésitez pas les bros !</h3>
     <input type="text" class="form-control" name="author" placeholder="Votre pseudo !">
     <textarea name="content" class="form-control" id="" cols="30" rows="10"

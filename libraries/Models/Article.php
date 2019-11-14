@@ -1,9 +1,7 @@
 <?php
-require_once ('Model.php');
+namespace Models;
 
 class Article extends Model
 {
     protected $table = "articles";
-
-
 }

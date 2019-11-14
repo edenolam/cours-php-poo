@@ -1,6 +1,6 @@
 <?php
+namespace Models;
 
-require_once ('libraries/database.php');
 
 abstract class Model
 //abstract ne peut pas etre utilisé, ne peut pas etre instancié
@@ -13,8 +13,27 @@ abstract class Model
      */
     public function __construct()
     {
-        $this->pdo = getPdo();
+        //appel methode static
+        $this->pdo = \Database::getPdo();
     }
+
+    /**
+     * @param null|string $order
+     * @return array
+     */
+    public function findAll(?string $order = ""): array
+    {
+        $sql = "SELECT * FROM {$this->table}";
+        if ($order){
+            $sql .= " ORDER BY " . $order;
+        }
+        // méthode query (pas besoin de préparation car aucune variable n'entre en jeu)
+        $results = $this->pdo->query($sql);
+        // On fouille le résultat pour en extraire les données réelles
+        $items = $results->fetchAll();
+        return $items;
+    }
+
 
     /**
      * @param int $id
@@ -35,23 +54,6 @@ abstract class Model
     {
         $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
         $query->execute(['id' => $id]);
-    }
-
-    /**
-     * @param null|string $order
-     * @return array
-     */
-    public function findAll(?string $order = ""): array
-    {
-        $sql = "SELECT * FROM {$this->table}";
-        if ($order){
-           $sql .= " ORDER BY " . $order;
-        }
-        // méthode query (pas besoin de préparation car aucune variable n'entre en jeu)
-        $results = $this->pdo->query($sql);
-        // On fouille le résultat pour en extraire les données réelles
-        $items = $results->fetchAll();
-        return $items;
     }
 
 }

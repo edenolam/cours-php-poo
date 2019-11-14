@@ -1,10 +1,9 @@
 <?php
-require_once('Model.php');
+namespace Models;
 
 class Comment extends Model
 {
     protected $table = "comments";
-
     /**
      * @param int $article_id
      * @return array
