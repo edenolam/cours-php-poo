@@ -3,7 +3,7 @@
 require_once ('libraries/database.php');
 
 abstract class Model
-//ne peut pas etre utulisé, ne peut pas etre instancié
+//abstract ne peut pas etre utilisé, ne peut pas etre instancié
 {
     protected $pdo;
     protected $table;
