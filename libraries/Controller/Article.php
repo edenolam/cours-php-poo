@@ -1,10 +1,9 @@
 <?php
 
 namespace Controller;
-
 class Article extends Controller
 {
-    protected $modelName = \Models\Article::class;
+    protected $modelName = \Model\Article::class;
 
     public function index()
     {
@@ -15,7 +14,7 @@ class Article extends Controller
 
     public function show()
     {
-        $commentModel = new \Models\Comment();
+        $commentModel = new \Model\Comment();
         /**
          * 1. Récupération du param "id" et vérification de celui-ci
          */

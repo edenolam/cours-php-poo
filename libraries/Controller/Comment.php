@@ -1,15 +1,13 @@
 <?php
-
-
 namespace Controller;
 
 class Comment extends Controller
 {
-    protected $modelName = \Models\Comment::class;
+    protected $modelName = \Model\Comment::class;
 
     public function insert()
     {
-        $articleModel = new \Models\Article();
+        $articleModel = new \Model\Article();
         /**
          * 1. On vérifie que les données ont bien été envoyées en POST
          * D'abord, on récupère les informations à partir du POST

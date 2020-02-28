@@ -1,5 +1,5 @@
 <?php
-namespace Models;
+namespace Model;
 
 class Article extends Model
 {
